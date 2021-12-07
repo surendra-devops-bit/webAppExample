@@ -20,8 +20,18 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
 	</dependencies>
-	
+	<profiles>
+   <profile>
+      <id>sonar</id>
+		<activation>
+		<activeByDefault>true</activeByDefault>
+		</activation>
+		<properties>
+		<sonar.host.url>http://localhost:8000/</sonar.host.url>
+		<sonar-maven-plugin.version>3.3.0.603</sonar-maven-plugin.version>
+		</properties>
 	<build>
 		<finalName>webappExample</finalName>
 		
@@ -38,6 +48,11 @@
 			</container>
 		</configuration>
 	</plugin>
+			<plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.3.0.603</version>
+ </plugin>
 		<plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-war-plugin</artifactId>
@@ -63,4 +78,6 @@
 			
 		</plugins>
 	</build>
+	</profile>
+	</profiles>
 </project>
